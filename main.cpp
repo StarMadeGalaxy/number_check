@@ -25,7 +25,7 @@ double input_check()
 		// Must consider every case in string that could be a number.
 		// In scientific input power could be with floating point
 		// so we'll consider this case with dash_counter <= 2
-		// for instance: -1.2e-14, -1.2e+14 or -1.2e14
+		// for instance: -1.2e-14, -1.2e+14 or -1.2e14 -1.2E14
 		
 		// we gotta check cases like + -12 or -+12 are what should be - 12 cause + 12 * -12 = -12
 		if (user_input.length() >= 2) {
@@ -61,7 +61,7 @@ double input_check()
 /*6*/		else if (user_input[i] == '+' && plus_counter < 2 && e_counter == 1 && dot_counter < 2 && dash_counter < 2 && digit_counter > 0) {
 				//cout << "TEST 6" << endl;
 				plus_counter++;
-/*7*/		} else if (user_input[i] == 'e' && e_counter < 1 && digit_counter > 0 && plus_counter < 2 && dash_counter < 2 && dot_counter < 2) {
+/*7*/		} else if ((user_input[i] == 'e' || user_input[i] == 'E') && e_counter < 1 && digit_counter > 0 && plus_counter < 2 && dash_counter < 2 && dot_counter < 2) {
 	            //cout << "TEST 7" << endl;
 				e_counter++;
 /*8*/		} else {
